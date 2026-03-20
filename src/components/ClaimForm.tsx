@@ -125,7 +125,7 @@ export default function ClaimForm({ type, initialName = '', initialToken = '', o
                   value={token}
                   onChange={(e) => setToken(e.target.value.toUpperCase())}
                   className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-transparent transition-all font-mono tracking-widest"
-                  placeholder="ENTER GIVEN TOKEN"
+                  placeholder="Enter your salami pass"
                   required
                   disabled={loading}
                 />

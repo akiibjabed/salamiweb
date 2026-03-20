@@ -178,3 +178,5 @@ export default function ClaimForm({ type, initialName = '', initialToken = '', o
     </div>
   );
 }
+
+

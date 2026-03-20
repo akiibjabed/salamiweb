@@ -119,7 +119,7 @@ export default function ClaimForm({ type, initialName = '', initialToken = '', o
           {type === 'claim' && (
             <>
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-white/70 uppercase tracking-wider ml-1">Salami Pass (auto-fill)</label>
+                <label className="text-xs font-bold text-white/70 uppercase tracking-wider ml-1">Salami Pass</label>
                 <input
                   type="text"
                   value={token}

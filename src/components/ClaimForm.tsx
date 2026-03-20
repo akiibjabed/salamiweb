@@ -39,7 +39,7 @@ export default function ClaimForm({ type, initialName = '', initialToken = '', o
       const snap = await getDocs(q);
 
       if (snap.empty) {
-        setError('Invalid salami pass or this pass has already been used!');
+        setError('Invalid pass token. Please check and try again.');
         setLoading(false);
         return;
       }
@@ -97,7 +97,7 @@ export default function ClaimForm({ type, initialName = '', initialToken = '', o
           </h2>
           <p className="text-white/50 text-sm">
             {type === 'claim' 
-              ? 'Use your unique salami pass to claim your salami.'
+              ? 'Use your unique pass token to claim your salami.'
               : 'Just enter your name and give it a spin!'}
           </p>
         </div>
@@ -119,13 +119,13 @@ export default function ClaimForm({ type, initialName = '', initialToken = '', o
           {type === 'claim' && (
             <>
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-white/70 uppercase tracking-wider ml-1">Salami Pass (auto-fill)</label>
+                <label className="text-xs font-bold text-white/70 uppercase tracking-wider ml-1">Salami Pass (Fills auto)</label>
                 <input
                   type="text"
                   value={token}
                   onChange={(e) => setToken(e.target.value.toUpperCase())}
                   className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-transparent transition-all font-mono tracking-widest"
-                  placeholder="Enter salami pass"
+                  placeholder="ENTER GIVEN TOKEN"
                   required
                   disabled={loading}
                 />

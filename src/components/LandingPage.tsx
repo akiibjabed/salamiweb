@@ -43,7 +43,7 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
           <span className="text-gradient-gold">from Akib in a fun way!</span>
         </h1>
         <p className="text-white/60 max-w-lg mx-auto text-[17px] leading-relaxed">
-          Spin the 🎡 wheel and get up to 50 BDT Eid Salami! To try this, just click the 'Claim Salami' button below.
+          Spin the 🎡 wheel and get up to 50 BDT Eid Salami! To do this, just click the 'Claim Salami' button below.
         </p>
       </motion.div>
 
@@ -64,7 +64,7 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
           onClick={() => onStart('try')}
           className="flex-1 glass-panel text-white/90 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/10 hover:text-white transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
         >
-          Test the Wheel! (Demo)
+          Give a Try (Demo)
           <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
         </button>
       </motion.div>

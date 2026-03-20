@@ -14,14 +14,14 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[-10%] left-[-10%] text-amber-500/10 opacity-20 pointer-events-none"
+        className="absolute top-[-10%] left-[-10%] text-amber-500/10 opacity-30 pointer-events-none"
       >
         <Star size={400} />
       </motion.div>
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[-10%] right-[-10%] text-violet-500/10 opacity-20 pointer-events-none"
+        className="absolute bottom-[-10%] right-[-10%] text-violet-500/10 opacity-30 pointer-events-none"
       >
         <Star size={500} />
       </motion.div>

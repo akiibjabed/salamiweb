@@ -1,94 +1,10 @@
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // ===============================================================
-    // Assumed Data Model
-    // ===============================================================
-    //
-    // Collection: passes
-    // Document ID: auto-generated or manual
-    // Fields:
-    //   - name: string (required)
-    //   - token: string (required)
-    //   - isUsed: boolean (required)
-    //   - createdAt: timestamp (required)
-    //
-    // Collection: claims
-    // Document ID: auto-generated
-    // Fields:
-    //   - name: string (required)
-    //   - amount: number (required)
-    //   - bkashNumber: string (required)
-    //   - status: string (required, enum: ['pending', 'paid'])
-    //   - claimedAt: timestamp (required)
-    //   - passToken: string (optional)
-    //
-    // ===============================================================
-
-    // ===============================================================
-    // Helper Functions
-    // ===============================================================
-    function isAuthenticated() {
-      return request.auth != null;
-    }
-
-    function isAdmin() {
-      return isAuthenticated() &&
-        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
-          (request.auth.token.email == "akibjabed10112004@gmail.com" && request.auth.token.email_verified == true));
-    }
-
-    function isValidPass(data) {
-      return data.keys().hasAll(['name', 'token', 'isUsed', 'createdAt']) &&
-             data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
-             data.token is string && data.token.size() > 0 && data.token.size() < 50 &&
-             data.isUsed is bool &&
-             data.createdAt is timestamp;
-    }
-
-    function isValidClaim(data) {
-      return data.keys().hasAll(['name', 'amount', 'bkashNumber', 'status', 'claimedAt']) &&
-             data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
-             data.amount is number && data.amount >= 0 && data.amount <= 50 &&
-             data.bkashNumber is string && data.bkashNumber.matches('^01[3-9]\\d{8}$') &&
-             data.status in ['pending', 'paid'] &&
-             data.claimedAt is timestamp;
-    }
-
-    // ===============================================================
-    // Rules
-    // ===============================================================
-
-    match /users/{userId} {
-      allow read: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
-      allow write: if isAdmin();
-    }
-
-    match /passes/{passId} {
-      // Admins can do everything
-      allow read, write: if isAdmin();
-      
-      // Users can read a pass if they know the token (via query)
-      // Note: This is a bit tricky with rules, usually we'd use a function or specific query check
-      // For simplicity in this fun app, we'll allow listing if they query by token
-      allow list: if true; 
-      allow get: if true;
-      
-      // Allow updating isUsed when claiming
-      allow update: if isValidPass(request.resource.data) && 
-                      request.resource.data.diff(resource.data).affectedKeys().hasOnly(['isUsed']) &&
-                      request.resource.data.isUsed == true;
-    }
-
-    match /claims/{claimId} {
-      allow read: if isAdmin();
-      allow create: if isValidClaim(request.resource.data);
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
-    }
-    
-    match /test/connection {
-      allow read: if true;
-    }
-  }
+{
+  "projectId": "gen-lang-client-0270242861",
+  "appId": "1:924328818414:web:8f53dfb5f7d572ad9b25ff",
+  "apiKey": "AIzaSyA2k96T4VNz4_UkvoMsyql1_z9ywR-7UdY",
+  "authDomain": "gen-lang-client-0270242861.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-8c611ea1-8cbb-499b-8178-0891660b364d",
+  "storageBucket": "gen-lang-client-0270242861.firebasestorage.app",
+  "messagingSenderId": "924328818414",
+  "measurementId": ""
 }

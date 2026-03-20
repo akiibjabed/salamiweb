@@ -1,13 +1,73 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-
+{
+  "entities": {
+    "Pass": {
+      "title": "Salami Pass",
+      "description": "A pre-generated pass for a specific person to claim salami.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the person the pass is for."
+        },
+        "token": {
+          "type": "string",
+          "description": "The unique token to validate the pass."
+        },
+        "isUsed": {
+          "type": "boolean",
+          "description": "Whether the pass has already been used."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the pass was created."
+        }
+      },
+      "required": ["name", "token", "isUsed", "createdAt"]
+    },
+    "Claim": {
+      "title": "Salami Claim",
+      "description": "A record of a successful salami claim.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the person who claimed."
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount won from the wheel."
+        },
+        "bkashNumber": {
+          "type": "string",
+          "description": "The bKash number to pay the salami to."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "paid"],
+          "description": "The payment status."
+        },
+        "claimedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the claim was made."
+        },
+        "passToken": {
+          "type": "string",
+          "description": "The token used for this claim (if any)."
+        }
+      },
+      "required": ["name", "amount", "bkashNumber", "status", "claimedAt"]
+    }
+  },
+  "firestore": {
+    "/passes/{passId}": {
+      "schema": "Pass",
+      "description": "Collection of pre-generated salami passes."
+    },
+    "/claims/{claimId}": {
+      "schema": "Claim",
+      "description": "Collection of salami claims to be processed."
+    }
+  }
+}

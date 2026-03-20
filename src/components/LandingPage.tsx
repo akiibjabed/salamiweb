@@ -43,7 +43,7 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
           <span className="text-gradient-gold">from Akib in a fun way!</span>
         </h1>
         <p className="text-white/60 max-w-lg mx-auto text-[17px] leading-relaxed">
-          Akib has prepared a special way for you to get your Eid salami. Spin the wheel and see what amount (5 to 50 BDT) you win!
+          Akib prepared a special way for you to get your Eid salami. Spin the 🎡wheel and see what amount (5 to 50 BDT) you win!
         </p>
       </motion.div>
 

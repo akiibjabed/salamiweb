@@ -39,11 +39,11 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
           <Sparkles className="text-amber-400 animate-pulse" size={20} />
         </div>
         <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.1] tracking-tight">
-          Claim your salami <br />
+          Claim your Eid salami <br />
           <span className="text-gradient-gold">from Akib in a fun way!</span>
         </h1>
         <p className="text-white/60 max-w-lg mx-auto text-[17px] leading-relaxed">
-          Welcome! Akib has prepared a special way for you to get your Eid salami. Spin the wheel and see what you win!
+          Akib has prepared a special way for you to get your Eid salami. Spin the wheel and see what amount (5 to 50 BDT) you win!
         </p>
       </motion.div>
 
@@ -64,7 +64,7 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
           onClick={() => onStart('try')}
           className="flex-1 glass-panel text-white/90 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/10 hover:text-white transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
         >
-          Give a Try
+          Test the Wheel! (Demo)
           <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
         </button>
       </motion.div>

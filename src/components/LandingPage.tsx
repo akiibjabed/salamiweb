@@ -14,14 +14,14 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[-10%] left-[-10%] text-amber-500/10 opacity-20 pointer-events-none"
+        className="absolute top-[-10%] left-[-10%] text-amber-500/10 opacity-30 pointer-events-none"
       >
         <Star size={400} />
       </motion.div>
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[-10%] right-[-10%] text-violet-500/10 opacity-20 pointer-events-none"
+        className="absolute bottom-[-10%] right-[-10%] text-violet-500/10 opacity-30 pointer-events-none"
       >
         <Star size={500} />
       </motion.div>
@@ -43,7 +43,7 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
           <span className="text-gradient-gold">from Akib in a fun way!</span>
         </h1>
         <p className="text-white/60 max-w-lg mx-auto text-[17px] leading-relaxed">
-          Welcome! Akib has prepared a special way for you to get your Eid salami. Spin the wheel and see what you win!
+          Spin the 🎡 wheel and get up to 50 BDT Eid Salami! To do this, just click the 'Claim Salami' button below.
         </p>
       </motion.div>
 
@@ -64,7 +64,7 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
           onClick={() => onStart('try')}
           className="flex-1 glass-panel text-white/90 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/10 hover:text-white transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
         >
-          Give a Try
+          Give a Try (Demo)
           <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
         </button>
       </motion.div>

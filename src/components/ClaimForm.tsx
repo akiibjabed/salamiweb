@@ -65,7 +65,7 @@ export default function ClaimForm({ type, initialName = '', initialToken = '', o
       onSuccess(name, passData.token, bkash);
     } catch (err) {
       console.error('Error validating pass:', err);
-      setError('Something went wrong. Please try again later.');
+      setError('Invalid salami pass or this pass has already been used!');
     } finally {
       setLoading(false);
     }

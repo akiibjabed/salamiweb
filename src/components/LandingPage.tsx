@@ -39,11 +39,11 @@ export default function LandingPage({ onStart, onAdmin }: LandingPageProps) {
           <Sparkles className="text-amber-400 animate-pulse" size={20} />
         </div>
         <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.1] tracking-tight">
-          Claim your Eid salami <br />
+          Claim your salami <br />
           <span className="text-gradient-gold">from Akib in a fun way!</span>
         </h1>
         <p className="text-white/60 max-w-lg mx-auto text-[17px] leading-relaxed">
-          Akib prepared a special way for you to get your Eid salami. Spin the 🎡wheel and see what amount (5 to 50 BDT) you win!
+          Spin the 🎡 wheel and get up to 50 BDT Eid Salami! To try this, just click the 'Claim Salami' button below.
         </p>
       </motion.div>
 
